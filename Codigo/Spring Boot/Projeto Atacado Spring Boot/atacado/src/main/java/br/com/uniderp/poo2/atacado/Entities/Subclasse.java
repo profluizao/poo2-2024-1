@@ -2,11 +2,31 @@ package br.com.uniderp.poo2.atacado.Entities;
 
 import java.time.LocalDate;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "tb_subclasse")
 public class Subclasse {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codigo;
+
     private Long codigoClasse;
+
     private String nome;
+    
+    @Column(name = "dataDeInclusao")
+    @DateTimeFormat(pattern="yyy-MM-dd-HH.mm.ss")    
     private LocalDate dataDeInclusao;
+    
     public Long getCodigo() {
         return codigo;
     }
